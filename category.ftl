@@ -1,4 +1,4 @@
-<#include "module/macro.ftl">
+ <#include "module/macro.ftl">
 <@layout title="分类：${category.name} | ${options.blog_title!} ">
   <main class="mx-auto" id="container">
       <#if settings.card_random_cover_list?? && settings.card_random_cover_list != ''>
@@ -29,6 +29,20 @@
         <!-- 封面内容 -->
         <div class="inner flex flex-col justify-center">
           <p class="cover-title text-base md:text-4xl lg:text-4xl xl:text-5xl">${category.name}</p>
+          <p style="font-size:20px;color:white;text-align:center">${category.description}</p>
+        <!-- 标签组 -->
+          <p class="flex flex-row justify-start flex-wrap mx-auto">
+              <@categoryTag method="list">
+                  <#if categories?? && categories?size gt 0>
+                      <#list categories as category>
+                        <a href="${category.fullPath}" class="post-tag mt-2 mb-2 mr-2">
+                            ${category.name} <span class="tag-length">${category.postCount!}</span>
+                        </a>
+                      </#list>
+                  </#if>
+              </@categoryTag>
+          </p>
+
         </div>
       </div>
     </header>

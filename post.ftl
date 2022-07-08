@@ -57,20 +57,13 @@
         class="container mx-auto px-4 md-content mt-8 max-w-6xl tracking-wider md:leading-relaxed sm:leading-normal cn-pd ct-container loading"
         id="write">
       </div>
+      <!-- id用于定位 -->
       <div id="tocFlag"></div>
-        <#if settings.post_toc!true>
-          <aside id="toc" class="toc"></aside>
-        </#if>
+
     </div>
 
     <div
       class="container mx-auto px-4 mt-8 max-w-6xl tracking-wider md:leading-relaxed sm:leading-normal  cn-pd ct-container coffee-tags">
-      <blockquote class="post-copyright">
-        <p><b>Copyright: </b> 采用 <a href="https://creativecommons.org/licenses/by/4.0/"
-                                    target="_blank"
-                                    rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可</p>
-        <p><b>Links: </b> <a href="${post.fullPath!}">${post.fullPath!}</a></p>
-      </blockquote>
         <#include "module/widget/sponsor.ftl">
     </div>
 

@@ -58,22 +58,22 @@
                        class="text-xs">${settings.PublicSecurityRecord!}</a>
                 </p>
             </#if>
-            <!-- 请尊重作者，请务必保留版权 -->
-            <div class="badges">
-                <div class="github-badge">
-                    <a style="color: #fff" rel="license" href="http://halo.run" target="_blank">
-                        <span class="badge-subject">Powered</span>
-                        <span class="badge-value bg-blue">Halo</span>
-                    </a>
-                </div>
-                <div class="github-badge">
-                    <a style="color: #fff" rel="license" href="https://github.com/xzzai/halo-theme-xue.git"
-                       target="_blank">
-                        <span class="badge-subject">Theme</span>
-                        <span class="badge-value bg-red">Xue</span>
-                    </a>
-                </div>
-
+      <!-- 请尊重作者，请务必保留版权 -->
+      <div class="badges">
+        <div class="github-badge">
+          <a style="color: #fff" rel="license" href="http://halo.run" target="_blank">
+            <span class="badge-subject pr-8 mr-1">Powered</span>
+            <span class="badge-value bg-blue">Halo</span>
+          </a>
+        </div>
+        <div class="github-badge">
+          <a style="color: #fff" rel="license" href="https://github.com/yangJiang-create/halo-theme-xue2020.git"
+             target="_blank">
+            <span class="badge-subject pr-8 mr-1">Theme</span>
+            <span class="badge-value bg-red">Xue_JY</span>
+          </a>
+        </div>
+        
                 <#if settings.TimeStatistics??>
                     <div class="github-badge">
                         <a style="color: #fff" rel="license" href="javascript:void(0)">

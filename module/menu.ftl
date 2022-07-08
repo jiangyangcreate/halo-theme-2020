@@ -3,9 +3,8 @@
         <span class="moon-menu-item pl-6 iconfont icon-up" onClick="ckBack2Top()"> </span>
         <span class="moon-menu-item pl-6 iconfont icon-down" onClick="ckBack2Bottom()"> </span>
         <span class="moon-menu-item pl-6 iconfont icon-search" onclick="toggleSearchBox()"></span>
-        <#if settings.post_toc!true>
-            <span class="moon-menu-item pl-6 iconfont icon-toc hidden" onclick="ckShowContent()" id="smallToc"></span>
-        </#if>
+        <span class="moon-menu-item pl-6 iconfont icon-Eyesight" onclick="dayNightSwitch()"></span>
+        <span class="moon-menu-item pl-6 iconfont icon-yuedu" onclick="ckShowContent()" ></span>
     </div>
 
     <div class="moon-menu-button" onclick="ckMoonButton()">
@@ -27,4 +26,6 @@
 
 <#-- 目录 -->
 <div class="moon-content menu-bg" id="moonToc">
+  <p class="mx-auto text-center mb-2 md-content h2">目录捕获</p>
+  <aside id="toc" class="mx-auto"></aside>
 </div>

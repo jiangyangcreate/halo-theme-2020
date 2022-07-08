@@ -45,7 +45,7 @@ function documentClickToc(target) {
   if (moonToc && moonToc.hasClass('mm-active')) {
     if (target.id && target.id === "moonToc") {
     } else if (target.id && target.id === "moonMenu") {
-    } else if (target.id && target.classList.contains('icon-toc')) {
+    } else if (target.id && target.classList.contains('icon-yuedu')) { // 修改标签样式
     } else if (target.classList.contains('moon-menu-button')) {
     } else if (target.classList.contains('moon-menu-text')) {
     } else {
@@ -71,11 +71,11 @@ function getHashCode(str, caseSensitive) {
  * 处理目录
  */
 function dealContentToc() {
-  if (getClientWidth() > 1359) {
+  if (getClientWidth() > 300) { // 设为300以上才显示目录,支持移动端
     initToc();
     scrollTocFixed();
   } else {
-    var smallToc = $('.moon-menu-item.icon-toc');
+    var smallToc = $('.moon-menu-item.icon-yuedu');// 修改标签样式
     if (smallToc) {
       smallToc.toggleClass('hidden');
       // 渲染目录
@@ -104,19 +104,20 @@ function handleNavMenu() {
 
 function handleScrollMenu() {
 
+  //  opacity-0 是隐藏菜单，暂时不用隐藏.使用全局显示
   if (getClientWidth() <= 800) {
     $('#navHeader .nav').addClass('opacity-100').removeClass('opacity-0')
     return;
   }
   const scrollTop = getScrollTop();
-  if (scrollTop > 29) {
+  if (scrollTop > 0) {  // 滚动更加灵敏
     $('#navHeader').addClass('nav-bg-fff')
     $('#navHeader .nav').addClass('opacity-100').removeClass('opacity-0')
     $('#navHeader .collapse-nav').hide()
     $('.collapse-burger').removeClass('open');
   } else {
     $('#navHeader').removeClass('nav-bg-fff')
-    $('#navHeader .nav').removeClass('opacity-100').addClass('opacity-0')
+    $('#navHeader .nav').removeClass('opacity-0').addClass('opacity-100')
     $('#navHeader .collapse-nav').show()
   }
 }
@@ -204,7 +205,7 @@ function tocScroll(event) {
   if (scrollTop > postHeaderHeight / 2) {
     tocFixed.show();
   } else {
-    tocFixed.hide();
+    tocFixed.show();// tocFixed.hide(); 目录全程展示，不动态出现
   }
 
   const tocEle = document.querySelector(tocId);
@@ -213,7 +214,7 @@ function tocScroll(event) {
   }
   const tocHeight = tocEle.getBoundingClientRect().height;
   if (scrollTop > ObjTop - tocHeight * 0.5) {
-    tocFixed.addClass("toc-right-fixed");
+    tocFixed.removeClass("toc-right-fixed");//   tocFixed.addClass("toc-right-fixed"); 目录全程展示，结尾藏到右边
   } else {
     tocFixed.removeClass("toc-right-fixed");
   }
@@ -571,7 +572,7 @@ function initMoonToc() {
   var moonToc = $('#moonToc');
   // 没有生成目录
   if (moonToc && moonToc.children().length === 0) {
-    $('.icon-toc').addClass('hidden');
+    $('.icon-yuedu').addClass('hidden'); // 修改目录样式
   }
 }
 
@@ -988,3 +989,105 @@ $(function () {
 
   }
 });
+
+// ajaxPostLists 局部加载
+function ajaxPostLists(){
+    var pageUrl = $("button.ajaxPostLists").attr("data-href");
+    if ($("button.ajaxPostLists").attr("data-href") != "null") {
+      $(".ajaxPostLists").css("color", "gray"); // 加载中是灰色
+      $.ajax({
+        url: pageUrl,
+        type: "GET",
+        dataType: "html",
+        async: false,
+        crossDomain: true,
+        headers: {},
+        success: function (data) {
+          var a = $(data).find("button.ajaxPostLists").attr("data-href");
+          setTimeout(function () {
+
+            if (pageUrl.search("journals") != -1) {
+              //日志页
+
+            } else if (pageUrl.search("archives") != -1) {
+              // 归档页
+            } else {
+              $(".posts > div:last").after($(data).find(".posts > div")); //其他页面（首页、分类、标签、搜索）
+              lazyloadImg(); // 加载完用懒加载刷新一下
+            }
+            if (a == undefined) {
+              $(".ajaxPostLists").css("color", "gray"); // 加载完也是是灰色
+            } else {
+              $(".ajaxPostLists").css("color", "red");  // 加载好是红色
+             }
+          }, 400);
+
+          if (a == undefined) {
+            $("button.ajaxPostLists").attr("data-href", "null");
+          } else {
+            $("button.ajaxPostLists").attr("data-href", a);
+          }
+        },
+        timeout: 3000,
+        error: function () {
+          mdui.snackbar({
+            message: "未响应！",
+            position: "right-top",
+          });
+        },
+      });
+    }
+};
+//自定义一言
+var wordslist=["Speak low, if you speak love.  ",
+"One today is worth two tomorrows.", 
+"Happiness depends upon ourselves. ",
+"Kindness is the greatest wisdom.  ",
+"A beautiful thing is never perfect.",
+"One faces the future with ones past.",
+"If you wish to be a writer, write.  ",
+"Absence makes the heart grow fonder.",
+"Self-complacency is fatal to progress.",
+"All serious daring starts from within. ",
+"Change your thoughts, change your life! ",
+"The pain passes, but the beauty remains. ",
+"Most smiles are started by another smile.",
+"A prudent question is one half of wisdom. ",
+"Fears are nothing more than a state of mind.  ",
+"To enjoy life, we must touch much of it lightly.",
+"The energy of the mind is the essence of life.  ",
+"I never worry about action, but only inaction.  ",
+"Time is the most valuable thing a man can spend. ",
+"Never let lack of money interfere with having fun.",
+"I never think of the future. It comes soon enough. ",
+"Yesterday I dared to struggle. Today I dare to win. ",
+"Never put off till tomorrow what you can do today.  ",
+"Formula for success: under promise and over deliver. ",
+"Kind words do not cost much. Yet they accomplish much. ",
+"A wise man will make more opportunities than he finds. ",
+"In seed time learn, in harvest teach, in winter enjoy. ",
+"Wrinkles should merely indicate where smiles have been. ",
+"A good plan today is better than a perfect plan tomorrow.",
+"I begin with an idea and then it becomes something else.  ",
+"Take rest; a field that has rested gives a bountiful crop. ",
+"Make the most of yourself, for that is all there is of you. ",
+"Strong beliefs win strong men, and then make them stronger.  ",
+"The only real mistake is the one from which we learn nothing. ",
+"Nothing in life is to be feared. It is only to be understood. ",
+"We choose our joys and sorrows long before we experience them. ",
+"Society develops wit, but its contemplation alone forms genius. ",
+"Be gentle first with yourself if you wish to be gentle with others.",
+"May our hearts garden of awakening bloom with hundreds of flowers. ",
+"People may doubt what you say, but they will believe what you do.  ",
+"Reason and free inquiry are the only effectual agents against error. ",
+"We are Divine enough to ask and we are important enough to receive.  ",
+"Better than a thousand hollow words, is one word that brings peace.  ",
+"Build a better mousetrap and the world will beat a path to your door. ",
+"It is only possible to live happily ever after on a day to day basis. ",]
+
+var number = parseInt(45*Math.random()); 
+var word=wordslist[number];
+var index=0; 
+var hitokoto = document.getElementById('hitokoto');
+function type(){         hitokoto.innerText = word.substring(0,index++);     }
+setInterval(type, 100);

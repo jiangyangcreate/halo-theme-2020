@@ -70,7 +70,7 @@
           <a style="color: #fff" rel="license" href="https://github.com/yangJiang-create/halo-theme-xue2020.git"
              target="_blank">
             <span class="badge-subject pr-8 mr-1">Theme</span>
-            <span class="badge-value bg-red">Xue_JY</span>
+            <span class="badge-value bg-red">Xue2020</span>
           </a>
         </div>
         

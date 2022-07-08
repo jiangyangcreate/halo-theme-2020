@@ -1,0 +1,28 @@
+.is-invisible {
+  display: none;
+}
+
+.pagination-circle {
+  display: inline-block;
+  margin: 0 2px;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  line-height: 2.4rem;
+  color: #000;
+  text-align: center;
+}
+
+.pagination-circle:hover {
+  cursor: pointer;
+}
+
+.pagination-circle.is-current, .pagination-circle:hover {
+  background-color: var(--base-hl-color);
+  background-image: none;
+  color: var(--page-text-color);
+}
+
+.pagination-circle:hover {
+  color: var(--page-text-color);
+}

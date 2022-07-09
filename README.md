@@ -15,7 +15,6 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/halo-dev/halo?label=halo&style=flat-square)
 
 ![截图](./screenshot.png)
-![截图](./screenshot_new.png)
 
 ## 说明
 

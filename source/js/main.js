@@ -7,6 +7,7 @@ function dayNightSwitch() {
   const daySwitch = $("#daySwitch");
   daySwitch.toggleClass("daySwitch");
   $(document.body).toggleClass("night");
+  $("#moonToc").toggleClass("menu-night");
   if (document.body.classList.contains('night')) {
     setLocalStorage(key, true);
   } else {
@@ -33,6 +34,7 @@ function checkNightMode() {
     const daySwitch = $("#daySwitch");
     daySwitch.removeClass("daySwitch");
     $(document.body).addClass("night");
+    $("#moonToc").addClass("menu-night");
   }
 }
 

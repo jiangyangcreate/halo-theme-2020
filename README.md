@@ -23,6 +23,8 @@
 - [示例站点](https://www.jiangmiemie.com/)
 - [主题功能](#支持的功能)
 - [更新日志](#更新日志)
+- [下载](https://github.com/yangJiang-create/halo-theme-xue2020/releases)
+
 
 ## 预览
 
@@ -40,11 +42,6 @@
 - [x] 首页文章多样式支持
 - [x] 全局 Pjax
 - [x] 优化主题稳定性
-
-
-## 安装
-
-通过 git 仓库直接安装，点击右上角导出为zip，上传至后台即可。
 
 
 ## 对原作者的支持

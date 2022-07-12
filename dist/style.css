@@ -5780,8 +5780,8 @@ span.toc-link-dot {
 }
 
 .menu-night{
-    background:#000000;
-    opacity:1;
+    background:#0f0f0f;
+    --text-color:#a9a9b3;
 }
 @media all and (max-width: 800px) {
     .night .nav-list .sh-box-t {

@@ -1010,10 +1010,13 @@ function ajaxPostLists(){
 
             if (pageUrl.search("journals") != -1) {
               //日志页
-
             } else if (pageUrl.search("archives") != -1) {
               // 归档页
-            } else {
+            } else if (pageUrl.search("search") != -1) {
+              // . 是定位class
+              // # 是定位ID
+              $("#pageContainer").append($(data).find("#pageContainer").html()); 
+            }else {
               $(".posts > div:last").after($(data).find(".posts > div")); //其他页面（首页、分类、标签、搜索）
               lazyloadImg(); // 加载完用懒加载刷新一下
             }

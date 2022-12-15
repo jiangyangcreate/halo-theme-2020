@@ -1,17 +1,17 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: theme-xue2022
+  name: theme-xue
 spec:
-  displayName: xue2022
+  displayName: Xue
   author:
     name: 雪
     website: https://www.jiangmiemie.com
-  description: Less is more
-  logo: https://halo.run/logo
+  description: 改了图标
+  logo: https://raw.githubusercontent.com/jiangmiemie/halo-theme-xue2020/main/xue2020.jpg
   website: https://github.com/jiangmiemie/halo-theme-xue2020
   repo: https://github.com/jiangmiemie/halo-theme-xue2020
-  settingName: theme-xue2022-setting
-  configMapName: theme-xue2022-configMap
+  settingName: theme-xue-setting
+  configMapName: theme-xue-configMap
   version: 2.0.0
   require: 2.0.0

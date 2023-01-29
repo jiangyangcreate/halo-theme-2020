@@ -1,16 +1,15 @@
-import { defineConfig } from "vite";
+import {defineConfig} from "vite";
 import path from "path";
-import { fileURLToPath } from "url";
+import watch from "rollup-plugin-watch";
 
 export default defineConfig({
+  plugins: [watch({dir: "./", exclude: ["dist", "node_modules"]})],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/main.ts"),
       name: "main",
       fileName: "main",
-      formats: ["iife"],
+      formats: ["umd"],
     },
-    outDir: fileURLToPath(new URL("./templates/assets/dist", import.meta.url)),
-    emptyOutDir: true,
   },
 });

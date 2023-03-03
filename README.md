@@ -1,11 +1,8 @@
 
 ## 说明
 
-- [开始](https://www.jiangmiemie.com/)
-- [预览](#预览)
 - [示例站点](https://www.jiangmiemie.com/)
-- [主题功能](#支持的功能)
-- [更新日志](#更新日志)
+
 
 ## 支持的功能
 
